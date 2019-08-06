@@ -20,12 +20,13 @@ spec:
   ports:
   - name: default
     portPolicy: Dynamic
-    containerPort: 3754
+    containerPort: 3000
+    protocol: TCP
   template:
     spec:
       containers:
       - name: simple-websockets
-        image: gcr.io/websocket-tutorial/websocket-app:v1
+        image: gcr.io/websocket-tutorial/websocket-app:v1.01
         resources:
           requests:
             memory: "32Mi"
