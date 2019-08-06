@@ -19,7 +19,8 @@ metadata:
 spec:
   ports:
   - name: default
-    portPolicy: Dynamic
+    portPolicy: Static
+    hostPort: 3000
     containerPort: 3000
     protocol: TCP
   template:
