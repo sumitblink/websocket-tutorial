@@ -1,4 +1,5 @@
-# Copyright 2017 Google LLC All Rights Reserved.
+# Copyright 2019 Google LLC
+# All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,26 +13,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: "stable.agones.dev/v1alpha1"
+apiVersion: "agones.dev/v1"
 kind: GameServer
 metadata:
-  generateName: "simple-websockets-"
+  generateName: "unity-simple-server-"
 spec:
   ports:
   - name: default
-    portPolicy: Static
-    hostPort: 3000
-    containerPort: 3000
-    protocol: TCP
+    portPolicy: Dynamic
+    containerPort: 7777
   template:
     spec:
       containers:
-      - name: simple-websockets
-        image: gcr.io/websocket-tutorial/websocket-app:v1.01
-        resources:
-          requests:
-            memory: "32Mi"
-            cpu: "20m"
-          limits:
-            memory: "32Mi"
-            cpu: "20m"
+      - name: unity-simple-server
+        image: gcr.io/agones-images/unity-simple-server:0.2
+      resources:
+        requests:
+          memory: "128Mi"
+          cpu: "128m"
+        limits:
+          memory: "128Mi"
+          cpu: "128m"
