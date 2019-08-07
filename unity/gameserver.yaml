@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: unity-simple-tcp-server
-        image: gcr.io/unity-simple-tcp//unity-simple-tcp-server:v1
+        image: gcr.io/unity-simple-tcp/unity-simple-tcp-server:v1
       resources:
         requests:
           memory: "128Mi"
